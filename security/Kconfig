@@ -273,7 +273,7 @@ config PAX_SOFTMODE
 
 config PAX_EI_PAX
 	bool 'Use legacy ELF header marking'
-	default y if GRKERNSEC_CONFIG_AUTO
+	depends on BROKEN
 	help
 	  Enabling this option will allow you to control PaX features on
 	  a per executable basis via the 'chpax' utility available at
