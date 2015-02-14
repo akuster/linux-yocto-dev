@@ -1,0 +1,33 @@
+include ktypes/standard/standard.scc nocfg 
+branch grsec
+
+
+# feature block
+include features/blktrace/blktrace.scc nopatch
+include arch/arm/arm.scc nopatch
+include features/hrt/hrt.scc nopatch
+include features/ftrace/ftrace.scc nopatch
+include features/cgroups/cgroups.scc nopatch
+include features/net_sched/net_sched.scc nopatch
+
+include features/fuse/fuse.scc nopatch
+include features/serial/8250.scc nopatch
+include features/ktest/ktest.scc nopatch
+include features/perf/perf.scc nopatch
+
+# individual cfg block section
+include cfg/fs/devtmpfs.scc nopatch
+include cfg/fs/debugfs.scc nopatch
+include cfg/fs/btrfs.scc nopatch
+include cfg/fs/ext2.scc nopatch
+include cfg/fs/ext3.scc nopatch
+include cfg/fs/ext4.scc nopatch
+
+include cfg/net/ipsec.scc nopatch
+include cfg/net/ipv6.scc nopatch
+include cfg/net/ip_nf.scc nopatch
+include cfg/net/ip6_nf.scc nopatch
+include cfg/net/bridge.scc nopatch
+
+include cfg/systemd.scc nopatch nopatch
+include features/rfkill/rfkill.scc nopatch
