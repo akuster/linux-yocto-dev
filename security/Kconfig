@@ -433,7 +433,7 @@ config PAX_SEGMEXEC
 
 config PAX_EMUTRAMP
 	bool "Emulate trampolines"
-	default y if PARISC || GRKERNSEC_CONFIG_AUTO
+	default y
 	depends on (PAX_PAGEEXEC || PAX_SEGMEXEC) && (PARISC || X86)
 	help
 	  There are some programs and libraries that for one reason or
@@ -455,6 +455,12 @@ config PAX_EMUTRAMP
 	  Alternatively you can say N here and use the 'chpax' or 'paxctl'
 	  utilities to disable CONFIG_PAX_PAGEEXEC and CONFIG_PAX_SEGMEXEC
 	  for the affected files.
+
+	  NOTE: Hardened Gentoo users needs this option enabled for python
+	  to work properly.  Without it, all python apps, including portage,
+	  may fail.  By default, python has CONFIG_PAX_EMUTRAMP enabled by
+	  the ebuild when USE=pax_kernel is set, otherise CONFIG_PAX_PAGEEXEC
+	  is enabled as a fallback.
 
 	  NOTE: enabling this feature *may* open up a loophole in the
 	  protection provided by non-executable pages that an attacker
